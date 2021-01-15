@@ -28,14 +28,16 @@ h3 {
   color: rgb(208,131,140, 0.8);
   margin-right: 1rem;
 }
-
+#roll-dice, #new-game, #hold {
+  cursor: pointer;
+}
 /* Players */
 h2 {
   font-size: 4rem;
   font-weight: 600;
 }
 .global {
-  font-size: 12rem;
+  font-size: 10rem;
   margin: 0 0 10rem;
   color: rgb(208,131,140, 0.8);
 }
@@ -61,6 +63,19 @@ p.current-score {
   box-shadow: 5px 5px 15px black;
   margin: 2rem auto;
   position: relative;
+  /* animation: shake .1s ease-in-out infinite backwards;
+  animation-play-state: paused; */
+}
+@keyframes shake {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  50% {
+    transform: rotateZ(-10deg);
+  }
+  100% {
+    transform: rotateZ(10deg);
+  }
 }
 .point {
   height: 15%;
@@ -69,7 +84,7 @@ p.current-score {
   background-color: rgba(234,77,73);
   box-shadow: inset 1px 1px 3px black;
   position: absolute;
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 .active {
   visibility: visible;
@@ -94,7 +109,4 @@ p.current-score {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-#roll-dice {
-  cursor: pointer;
 }

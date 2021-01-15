@@ -14,39 +14,47 @@
     <ion-content class="ion-padding">
       <div class="container">
         <ion-grid>
+          <!-- row new game -->
           <ion-row class="ion-justify-content-center">
-            <span class="icon">
+            <h3>
               <ion-icon name="add-circle-outline"></ion-icon>
-            </span>
-            <h3>NEW GAME</h3>
+              NEW GAME
+            </h3>
           </ion-row>
+          <!-- row players global score-->
           <ion-row>
             <ion-col>
-              <ion-row class="ion-justify-content-center">
-                <h2>PLAYER 1</h2>
+              <ion-row class="ion-justify-content-end">
+                <div class="ion-text-center player">
+                  <h2>PLAYER 1</h2>
+                  <p class="global" id="global-1">00</p>
+                </div>
               </ion-row>
             </ion-col>
+            <ion-col size="5">
+              <div class="de">
+                <span class="point no"></span>
+                <span class="point o"></span>
+                <span class="point so"></span>
+                <span class="point nose"></span>
+                <span class="point ne"></span>
+                <span class="point e"></span>
+                <span class="point se"></span>    
+              </div>      
+            </ion-col>
             <ion-col>
-              <ion-row class="ion-justify-content-center">
-                <h2>PLAYER 2</h2>
+              <ion-row class="ion-justify-content-start">
+                <div class="ion-text-center player">
+                  <h2>PLAYER 2</h2>
+                  <p class="global" id="global-2">00</p>
+                </div>
               </ion-row>
             </ion-col>
           </ion-row>
-          <ion-row>
+          <!-- row current score & button hold roll dice-->
+          <ion-row class="ion-align-items-center">
             <ion-col>
-              <ion-row class="ion-justify-content-center">
-                <p class="global" id="global-1">00</p>
-              </ion-row>
-            </ion-col>
-            <ion-col>
-              <ion-row class="ion-justify-content-center">
-                <p class="global" id="global-2">00</p>
-              </ion-row>
-            </ion-col>
-          </ion-row>
-          <ion-row class="ion-justify-content-center">
-            <ion-col>
-              <ion-row class="ion-justify-content-center">
+              <ion-row class="ion-justify-content-end">
                 <ion-card class="ion-text-center card-current">
                   <ion-card-header>
                     <ion-card-title>Current</ion-card-title>
@@ -57,8 +65,23 @@
                 </ion-card>
               </ion-row>
             </ion-col>
+            <ion-col size="5" class="ion-text-center">
+              <div id="roll-dice">
+                <h3>
+                  <ion-icon name="reload-outline"></ion-icon>
+                  Roll dice
+                </h3>
+              </div>
+              <br>
+              <div id="hold">
+                <h3>
+                  <ion-icon name="download-outline"></ion-icon>
+                  Hold
+                </h3>
+              </div>
+            </ion-col>
             <ion-col>
-              <ion-row class="ion-justify-content-center">
+              <ion-row class="ion-justify-content-start">
                 <ion-card class="ion-text-center card-current">
                   <ion-card-header>
                     <ion-card-title>Current</ion-card-title>
@@ -69,33 +92,9 @@
                 </ion-card>
               </ion-row>
             </ion-col>
-          </ion-row>
-          <ion-row class="ion-justify-content-center">
-            <div id="roll-dice">
-              <span class="icon">
-                <ion-icon name="reload-outline"></ion-icon>
-              </span>
-              <h3>Roll dice</h3>
-            </div>
-          </ion-row>
-          <br>
-          <ion-row class="ion-justify-content-center">
-            <span class="icon">
-              <ion-icon name="download-outline"></ion-icon>
-            </span>
-            <h3>Hold</h3>
-          </ion-row>
+          </ion-row>          
         </ion-grid>
       </div>
-      <div class="de">
-        <span class="point no"></span>
-        <span class="point o"></span>
-        <span class="point so"></span>
-        <span class="point nose"></span>
-        <span class="point ne"></span>
-        <span class="point e"></span>
-        <span class="point se"></span>    
-      </div>      
     </ion-content>
   </ion-app>
   <script src="app.js"></script>

@@ -41,6 +41,14 @@ h2 {
   margin: 0 0 10rem;
   color: rgb(208,131,140, 0.8);
 }
+.active-player {
+  display: block;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  background-color: rgba(234,77,73);
+  margin: .7rem 0 0 1.6rem;
+}
 
 /* current score */
 .card-text {
@@ -49,6 +57,9 @@ h2 {
 p.current-score {
   color:antiquewhite;
   font-size: 5rem;
+}
+.card-current {
+  width: 250px;
 }
 
 /* style dé */
@@ -63,8 +74,6 @@ p.current-score {
   box-shadow: 5px 5px 15px black;
   margin: 2rem auto;
   position: relative;
-  /* animation: shake .1s ease-in-out infinite backwards;
-  animation-play-state: paused; */
 }
 @keyframes shake {
   0% {

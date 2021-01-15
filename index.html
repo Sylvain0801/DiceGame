@@ -16,83 +16,81 @@
         <ion-grid>
           <!-- row new game -->
           <ion-row class="ion-justify-content-center">
-            <h3>
-              <ion-icon name="add-circle-outline"></ion-icon>
-              NEW GAME
-            </h3>
+            <ion-row class="ion-align-items-center" id="new-game">
+              <ion-icon name="add-circle-outline" class="icon"></ion-icon>
+              <h3>New game</h3>
+            </ion-row>
           </ion-row>
-          <!-- row players global score-->
+          <!-- row main-->
           <ion-row>
             <ion-col>
               <ion-row class="ion-justify-content-end">
-                <div class="ion-text-center player">
-                  <h2>PLAYER 1</h2>
-                  <p class="global" id="global-1">00</p>
+                <div class="ion-text-center">
+                  <div class="player">
+                    <h2>PLAYER 1</h2>
+                    <p class="global" id="global-1">00</p>
+                  </div>
+                  <ion-card class="card-current">
+                    <ion-card-header>
+                      <ion-card-title class="card-text">Current</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                      <p class="current-score" id="current-1">00</p>
+                    </ion-card-content>
+                  </ion-card>
                 </div>
               </ion-row>
             </ion-col>
-            <ion-col size="5">
-              <div class="de">
-                <span class="point no"></span>
-                <span class="point o"></span>
-                <span class="point so"></span>
-                <span class="point nose"></span>
-                <span class="point ne"></span>
-                <span class="point e"></span>
-                <span class="point se"></span>    
-              </div>      
-            </ion-col>
-            <ion-col>
-              <ion-row class="ion-justify-content-start">
-                <div class="ion-text-center player">
-                  <h2>PLAYER 2</h2>
-                  <p class="global" id="global-2">00</p>
+            <ion-col size="4" class="ion-align-self-end">
+              <ion-row class="ion-justify-content-center">
+                <div class="dice-container">
+
+                  <div class="dice">
+                    <span class="point no"></span>
+                    <span class="point o"></span>
+                    <span class="point so"></span>
+                    <span class="point nose"></span>
+                    <span class="point ne"></span>
+                    <span class="point e"></span>
+                    <span class="point se"></span> 
+                  </div>
                 </div>
-              </ion-row>
-            </ion-col>
-          </ion-row>
-          <!-- row current score & button hold roll dice-->
-          <ion-row class="ion-align-items-center">
-            <ion-col>
-              <ion-row class="ion-justify-content-end">
-                <ion-card class="ion-text-center card-current">
-                  <ion-card-header>
-                    <ion-card-title>Current</ion-card-title>
-                  </ion-card-header>
-                  <ion-card-content>
-                    <p class="current-score" id="current-1">00</p>
-                  </ion-card-content>
-                </ion-card>
-              </ion-row>
-            </ion-col>
-            <ion-col size="5" class="ion-text-center">
-              <div id="roll-dice">
-                <h3>
-                  <ion-icon name="reload-outline"></ion-icon>
-                  Roll dice
-                </h3>
-              </div>
-              <br>
-              <div id="hold">
-                <h3>
-                  <ion-icon name="download-outline"></ion-icon>
-                  Hold
-                </h3>
+              </ion-row> 
+              <div>
+                <ion-row class="ion-justify-content-center">
+                  <ion-row class="ion-align-items-center" id="roll-dice">
+                    <ion-icon name="reload-outline" class="icon"></ion-icon>
+                    <h3>Roll dice</h3>
+                  </ion-row>
+                </ion-row>
+                <br>
+                <ion-row class="ion-justify-content-center">
+                  <ion-row class="ion-align-items-center" id="hold">
+                    <ion-icon name="download-outline" class="icon"></ion-icon>
+                    <h3>Hold</h3>
+                  </ion-row>
+                </ion-row> 
               </div>
             </ion-col>
             <ion-col>
               <ion-row class="ion-justify-content-start">
-                <ion-card class="ion-text-center card-current">
-                  <ion-card-header>
-                    <ion-card-title>Current</ion-card-title>
-                  </ion-card-header>
-                  <ion-card-content>
-                    <p class="current-score" id="current-2">00</p>
-                  </ion-card-content>
-                </ion-card>
+                <div class="ion-text-center">
+                  <div class="player">
+                    <h2>PLAYER 2</h2>
+                    <p class="global" id="global-2">00</p>
+                  </div>
+                  <ion-card class="card-current">
+                    <ion-card-header>
+                      <ion-card-title class="card-text">Current</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                      <p class="current-score" id="current-2">00</p>
+                    </ion-card-content>
+                  </ion-card>
+                </div>
               </ion-row>
             </ion-col>
-          </ion-row>          
+          </ion-row>      
         </ion-grid>
       </div>
     </ion-content>

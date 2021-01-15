@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le jeu de dé</title>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <ion-app>
+    <ion-content class="ion-padding">
+      <div class="container">
+        <ion-grid>
+          <ion-row class="ion-justify-content-center">
+            <span class="icon">
+              <ion-icon name="add-circle-outline"></ion-icon>
+            </span>
+            <h3>NEW GAME</h3>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-row class="ion-justify-content-center">
+                <h2>PLAYER 1</h2>
+              </ion-row>
+            </ion-col>
+            <ion-col>
+              <ion-row class="ion-justify-content-center">
+                <h2>PLAYER 2</h2>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-row class="ion-justify-content-center">
+                <p class="global" id="global-1">00</p>
+              </ion-row>
+            </ion-col>
+            <ion-col>
+              <ion-row class="ion-justify-content-center">
+                <p class="global" id="global-2">00</p>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-justify-content-center">
+            <ion-col>
+              <ion-row class="ion-justify-content-center">
+                <ion-card class="ion-text-center card-current">
+                  <ion-card-header>
+                    <ion-card-title>Current</ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <p class="current-score" id="current-1">00</p>
+                  </ion-card-content>
+                </ion-card>
+              </ion-row>
+            </ion-col>
+            <ion-col>
+              <ion-row class="ion-justify-content-center">
+                <ion-card class="ion-text-center card-current">
+                  <ion-card-header>
+                    <ion-card-title>Current</ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <p class="current-score" id="current-2">00</p>
+                  </ion-card-content>
+                </ion-card>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-justify-content-center">
+            <div id="roll-dice">
+              <span class="icon">
+                <ion-icon name="reload-outline"></ion-icon>
+              </span>
+              <h3>Roll dice</h3>
+            </div>
+          </ion-row>
+          <br>
+          <ion-row class="ion-justify-content-center">
+            <span class="icon">
+              <ion-icon name="download-outline"></ion-icon>
+            </span>
+            <h3>Hold</h3>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <div class="de">
+        <span class="point no"></span>
+        <span class="point o"></span>
+        <span class="point so"></span>
+        <span class="point nose"></span>
+        <span class="point ne"></span>
+        <span class="point e"></span>
+        <span class="point se"></span>    
+      </div>      
+    </ion-content>
+  </ion-app>
+  <script src="app.js"></script>
+</body>
+</html>

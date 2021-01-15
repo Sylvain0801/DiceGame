@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato');
+/* Modif variables ionic */
+:root {
+  --ion-font-family: 'Lato', sans-serif;
+  --ion-background-color: linear-gradient(45deg, rgb(231, 97, 44) 0%,rgba(140,51,16,1) 16%,rgba(140,51,16,1) 35%,rgba(117,34,1,1) 67%,rgba(140,51,16,1) 83%,rgba(191,110,78,1) 100%);
+  --ion-card-background: rgba(234,77,73)
+}
+body {
+  text-transform: uppercase;
+}
+.container {
+  background: linear-gradient(to right, rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(249,242,239,1) 50%,rgba(254,254,254,1) 100%);
+  min-height: 100%;
+  margin: 0 10px;
+  padding: 4rem 0;
+}

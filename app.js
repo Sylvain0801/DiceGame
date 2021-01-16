@@ -42,10 +42,10 @@ const launch = () => {
 
 const randomDice = () => {
   no = Math.floor(Math.random() * 6)
-  displayDice(no)
+  displayDice()
 }
 
-const displayDice = (no) => {
+const displayDice = () => {
   no === 0 ? (f1.classList.add('active'))
   : (allFace[no].forEach(item => {
     item.classList.add('active')
@@ -67,7 +67,6 @@ const newDice = () => {
     if (isPlaying) {
       gaming()
     }
-    // return no
   }, duration)
 }
 
@@ -103,7 +102,7 @@ newGame.addEventListener('click', (e) => {
   global1.textContent = global2.textContent = '00'
   isPlaying = false
   newDice()
-  setTimeout(duration => whoStartPlaying(no), duration)
+  setTimeout(duration => whoStartPlaying(), duration)
 })
 
 // gaming
@@ -111,7 +110,7 @@ const hold = document.getElementById('hold')
 
 hold.addEventListener('click', (e) => {
   global[activePlayer].textContent = formatNumberTwoDigits(parseInt(global[activePlayer].textContent) + parseInt(current[activePlayer].textContent))
-  if (parseInt(global[activePlayer].textContent) >= 10) {
+  if (parseInt(global[activePlayer].textContent) >= 100) {
     winnerIs()
   } else {
     current[activePlayer].textContent = '00'
@@ -158,11 +157,10 @@ const winnerIs = () => {
     current1.textContent = current2.textContent = '00'
     global1.textContent = global2.textContent = '00'
     isPlaying = false
-    newDice()
-    setTimeout(duration => whoStartPlaying(no), duration)
+    whoStartPlaying()
   })
 }
 
 // init game
 newDice()
-setTimeout(duration => whoStartPlaying(no), duration)
+setTimeout(duration => whoStartPlaying(), duration)

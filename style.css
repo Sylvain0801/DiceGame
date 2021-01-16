@@ -119,3 +119,49 @@ p.current-score {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+/* popup winner */
+.winner-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .5);
+  visibility: hidden;
+}
+.winner-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 20px;
+  background-color:rgba(249,242,239,1);
+  color: rgba(234,77,73, .8);
+  box-shadow: 5px 5px 15px black;
+  padding: 20px 50px 50px;
+  text-align: center;
+}
+@keyframes winnerpopup {
+  0% {
+    transform: translate(-50%, -50%) rotateZ(-2deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotateZ(2deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateZ(0deg);
+  }
+}
+.winner-btn {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  background-color: rgba(234,77,73, 1);
+  color:rgba(249,242,239,1);
+  box-shadow: 1px 1px 3px black;
+  padding: 15px;
+  margin-top: 50px;
+  border-radius: 5px;
+}
+.popup-btn-container {
+  display: flex;
+  justify-content: space-between;
+}

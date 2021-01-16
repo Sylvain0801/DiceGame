@@ -111,9 +111,13 @@ const hold = document.getElementById('hold')
 
 hold.addEventListener('click', (e) => {
   global[activePlayer].textContent = formatNumberTwoDigits(parseInt(global[activePlayer].textContent) + parseInt(current[activePlayer].textContent))
-  current[activePlayer].textContent = '00'
-  activePlayer = !activePlayer * 1
-  whoIsPlaying(activePlayer)
+  if (parseInt(global[activePlayer].textContent) >= 10) {
+    winnerIs()
+  } else {
+    current[activePlayer].textContent = '00'
+    activePlayer = !activePlayer * 1
+    whoIsPlaying(activePlayer)
+  } 
 })
 
 const whoIsPlaying = (active) => {
@@ -131,5 +135,34 @@ const gaming = () => {
   }
 }
 
+// gestion winner 
+const winnerIs = () => {
+  const popupWinner =  document.querySelector('.winner-container')
+  const winner =  document.querySelector('.winner')
+  const popup =  document.querySelector('.winner-popup')
+  const popupClose = document.getElementById('popup-close')
+  const popupNewGame = document.getElementById('popup-newgame')
+
+  winner.textContent = `player ${activePlayer + 1} win !!!`
+  popup.style.animation = 'winnerpopup .1s ease-in-out 10 forwards'
+  popupWinner.style.visibility = 'visible'
+  
+  popupClose.addEventListener('click', (e) => {
+    popupWinner.style.visibility = 'hidden'
+    popup.style.animation = 'none'
+  })
+  
+  popupNewGame.addEventListener('click', (e) => {
+    popupWinner.style.visibility = 'hidden'
+    popup.style.animation = 'none'
+    current1.textContent = current2.textContent = '00'
+    global1.textContent = global2.textContent = '00'
+    isPlaying = false
+    newDice()
+    setTimeout(duration => whoStartPlaying(no), duration)
+  })
+}
+
+// init game
 newDice()
 setTimeout(duration => whoStartPlaying(no), duration)

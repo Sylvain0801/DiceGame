@@ -10,13 +10,15 @@ const allFace = [f1, f2, f3, f4, f5, f6]
 
 const player1 = document.getElementById('player-1')
 const player2 = document.getElementById('player-2')
-
+const player = [player1, player2]
 
 const current1 = document.getElementById('current-1')
 const current2 = document.getElementById('current-2')
 const current = [current1, current2]
+
 const global1 = document.getElementById('global-1')
 const global2 = document.getElementById('global-2')
+const global = [global1, global2]
 
 var activePlayer = 1
 var isPlaying = false
@@ -63,9 +65,9 @@ const newDice = () => {
     dice.style.animation = 'none'
     animation = null
     if (isPlaying) {
-      current[activePlayer].textContent = formatNumberTwoDigits(parseInt(current[activePlayer].textContent) + no + 1)
+      gaming()
     }
-    return no
+    // return no
   }, duration)
 }
 
@@ -81,9 +83,8 @@ rollDice.addEventListener('click', (e) => {
   newDice()
 })
 
-const whoStartPlaying = (no) => {
+const whoStartPlaying = () => {
   no % 2 === 0 ? (
-    console.log(typeof no),
     activePlayer = 1,
     player2.classList.add('active-player'),
     player1.classList.remove('active-player')
@@ -104,6 +105,31 @@ newGame.addEventListener('click', (e) => {
   newDice()
   setTimeout(duration => whoStartPlaying(no), duration)
 })
+
+// gaming
+const hold = document.getElementById('hold')
+
+hold.addEventListener('click', (e) => {
+  global[activePlayer].textContent = formatNumberTwoDigits(parseInt(global[activePlayer].textContent) + parseInt(current[activePlayer].textContent))
+  current[activePlayer].textContent = '00'
+  activePlayer = !activePlayer * 1
+  whoIsPlaying(activePlayer)
+})
+
+const whoIsPlaying = (active) => {
+  player[active].classList.add('active-player'),
+  player[!active * 1].classList.remove('active-player')
+}
+
+const gaming = () => {
+  if (no === 0) {
+    current[activePlayer].textContent = '00'
+    activePlayer = !activePlayer * 1
+    whoIsPlaying(activePlayer)
+  } else {
+    current[activePlayer].textContent = formatNumberTwoDigits(parseInt(current[activePlayer].textContent) + no + 1)
+  }
+}
 
 newDice()
 setTimeout(duration => whoStartPlaying(no), duration)

@@ -9,6 +9,7 @@
 body {
   text-transform: uppercase;
   height: 100vh;
+  overflow: hidden;
 }
 .container {
   background: linear-gradient(to right, rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(249,242,239,1) 50%,rgba(254,254,254,1) 100%);
@@ -17,7 +18,7 @@ body {
   padding: 2rem 0;
 }
 #new-game {
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 /* style des buttons */
 h3 {
@@ -39,7 +40,7 @@ h2 {
 }
 .global {
   font-size: 10rem;
-  margin: 0 0 8rem;
+  margin: 0 0 6rem;
   color: rgb(208,131,140, 0.8);
 }
 .active-player {
@@ -65,7 +66,7 @@ p.current-score {
 
 /* style dé */
 .dice-container {
-  margin-bottom: 12rem;
+  margin-bottom: 7rem;
 }
 .dice {
   height: 10rem;

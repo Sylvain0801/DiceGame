@@ -137,7 +137,7 @@ p.current-score {
   position: absolute;
   top: 50%;
   left: 50%;
-  border-radius: 20px;
+  border-radius: 5px;
   background-color:rgba(249,242,239,1);
   color: rgba(234,77,73, .8);
   box-shadow: 5px 5px 15px black;
@@ -163,18 +163,19 @@ p.current-score {
   box-shadow: 1px 1px 3px black;
   padding: 15px;
   margin-top: 50px;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 .popup-btn-container {
   display: flex;
   justify-content: space-between;
 }
+
 /* responsive design */
 @media screen and (max-width: 1100px) {
   h2 {
     font-size: 2rem
   }
-  h3 {
+  h3, .winner-btn {
     font-size: 1.2rem
   }
   .icon {
@@ -200,14 +201,21 @@ p.current-score {
     margin: .3rem 0 0 .8rem;
   }
   .card-text {
-    font-size: .8rem;
+    font-size: .6rem;
+  }
+  .winner-popup {
+    padding: 15px;
+  }
+  .winner-btn {
+    padding: 8px;
+    margin-top: 20px;
   }
 }
 @media screen and (max-width: 700px) {
   h2 {
     font-size: 1.2rem
   }
-  h3 {
+  h3, .winner-btn {
     font-size: .8rem
   }
   .icon {

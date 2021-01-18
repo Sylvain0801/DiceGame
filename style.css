@@ -8,17 +8,16 @@
 /* global */
 body {
   text-transform: uppercase;
-  height: 100vh;
-  overflow: hidden;
 }
 .container {
   background: linear-gradient(to right, rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(249,242,239,1) 50%,rgba(254,254,254,1) 100%);
   min-height: 100%;
   margin: 0 10px;
-  padding: 2rem 0;
+  display: flex;
+  align-items: center;
 }
 #new-game {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 /* style des buttons */
 h3 {
@@ -32,6 +31,9 @@ h3 {
 }
 #roll-dice, #new-game, #hold {
   cursor: pointer;
+}
+#roll-dice {
+  margin-bottom: 6vh;
 }
 /* Players */
 h2 {
@@ -61,7 +63,7 @@ p.current-score {
   font-size: 5rem;
 }
 .card-current {
-  width: 250px;
+  width: 15vw;
 }
 
 /* style dé */
@@ -71,7 +73,7 @@ p.current-score {
 .dice {
   height: 10rem;
   width: 10rem;
-  border-radius: 20px;
+  border-radius: 10%;
   background-color:rgba(249,242,239,1);
   box-shadow: 5px 5px 15px black;
   margin: 2rem auto;
@@ -166,4 +168,89 @@ p.current-score {
 .popup-btn-container {
   display: flex;
   justify-content: space-between;
+}
+/* responsive design */
+@media screen and (max-width: 1100px) {
+  h2 {
+    font-size: 2rem
+  }
+  h3 {
+    font-size: 1.2rem
+  }
+  .icon {
+    font-size: 1.5rem;
+  }
+  .global {
+    font-size: 5rem;
+    margin: 0 0 3rem;
+  }
+  .dice {
+    height: 5rem;
+    width: 5rem;
+  }
+  p.current-score {
+    font-size: 2.5rem;
+  }
+  .dice-container {
+    margin-bottom: 3rem;
+  }
+  .active-player {
+    height: .8rem;
+    width: .8rem;
+    margin: .3rem 0 0 .8rem;
+  }
+  .card-text {
+    font-size: .8rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  h2 {
+    font-size: 1.2rem
+  }
+  h3 {
+    font-size: .8rem
+  }
+  .icon {
+    font-size: 1rem;
+  }
+  .global {
+    font-size: 3rem;
+  }
+  .dice {
+    height: 3rem;
+    width: 3rem;
+  }
+  p.current-score {
+    font-size: 1.5rem;
+  }
+  .dice-container {
+    margin-bottom: 0rem;
+  }
+  .card-header, .card-content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media screen and (max-height: 700px) {
+  #new-game {
+    margin-bottom: 0;
+  }
+  #roll-dice {
+    margin: 0;
+  }
+  .global {
+    margin: 0;
+  }
+  .dice-container {
+    margin-bottom: 1rem;
+  }
+  .dice {
+    margin: 0;
+  }
+  h2 {
+    margin: 0;
+  }
+  .card-header, .card-content {
+    padding-bottom: 0;
+  }
 }

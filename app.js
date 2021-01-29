@@ -1,24 +1,15 @@
-const f1 = document.querySelector('.nose')
-const f2 = document.querySelectorAll('.ne, .so')
-const f3 = document.querySelectorAll('.nose, .ne, .so')
-const f4 = document.querySelectorAll('.ne, .so, .no, .se')
-const f5 = document.querySelectorAll('.nose, .ne, .so, .no, .se')
-const f6 = document.querySelectorAll('.ne, .so, .no, .se, .e, .o')
+const allFace = [
+      document.querySelector('.nose'),                          //face 1
+      document.querySelectorAll('.ne, .so'),                    //face 2          
+      document.querySelectorAll('.nose, .ne, .so'),             //face 3
+      document.querySelectorAll('.ne, .so, .no, .se'),          //face 4
+      document.querySelectorAll('.nose, .ne, .so, .no, .se'),   //face 5
+      document.querySelectorAll('.ne, .so, .no, .se, .e, .o')   //face 6
+]
 const point = document.querySelectorAll('.point')
-
-const allFace = [f1, f2, f3, f4, f5, f6]
-
-const player1 = document.getElementById('player-1')
-const player2 = document.getElementById('player-2')
-const player = [player1, player2]
-
-const current1 = document.getElementById('current-1')
-const current2 = document.getElementById('current-2')
-const current = [current1, current2]
-
-const global1 = document.getElementById('global-1')
-const global2 = document.getElementById('global-2')
-const global = [global1, global2]
+const player = document.querySelectorAll('#player-1, #player-2')
+const current = document.querySelectorAll('#current-1, #current-2')
+const global = document.querySelectorAll('#global-1, #global-2')
 
 var activePlayer = 1
 var isPlaying = false
@@ -26,84 +17,49 @@ var isPlaying = false
 // gestion button roll dice
 const rollDice = document.getElementById('roll-dice')
 const dice = document.querySelector('.dice')
-
 const delay = 150
 
-var animation
-
+var animation = null
 var no = 1
 
-const duration = Math.floor(Math.random() * 1500 + 500)
-
 const launch = () => {
-  setTimeout((delay) => removeActive(), delay / 3)
-  randomDice()
-}
-
-const randomDice = () => {
-  no = Math.floor(Math.random() * 6)
-  displayDice()
-}
-
-const displayDice = () => {
-  no === 0 ? (f1.classList.add('active'))
-  : (allFace[no].forEach(item => {
-    item.classList.add('active')
-  }))
-}
-
-const removeActive = () => {
   point.forEach(item => item.classList.remove('active'))
+  no = Math.floor(Math.random() * 6)
+  no === 0 ? allFace[no].classList.add('active')
+  : allFace[no].forEach(item => item.classList.add('active'))
 }
 
 const newDice = () => {
-  animation = setInterval((delay) => launch(), delay)
-  dice.style.animation = `shake .1s ease-in-out ${duration / 100} backwards`
-  setTimeout(() => {
-    clearInterval(animation)
-    setTimeout( delay => displayDice(no), delay)
-    dice.style.animation = 'none'
-    animation = null
-    if (isPlaying) {
-      gaming()
-    }
-  }, duration)
-}
-
-const formatNumberTwoDigits = value => {
-  value = value.toString()
-  if (value.length === 1) {
-    value = '0' + value
+  if (!animation) {
+    const duration = Math.floor(Math.random() * 1500 + 500)
+    animation = setInterval((delay) => launch(), delay)
+    dice.style.animation = `shake .1s ease-in-out ${duration / 100} backwards`
+    setTimeout(() => {
+      clearInterval(animation)
+      dice.style.animation = 'none'
+      animation = null
+      isPlaying ? gaming() : whoStartPlaying()
+    }, duration)
   }
-  return value
 }
 
-rollDice.addEventListener('click', (e) => {
-  newDice()
-})
+rollDice.addEventListener('click', (e) => newDice())
 
 const whoStartPlaying = () => {
-  no % 2 === 0 ? (
-    activePlayer = 1,
-    player2.classList.add('active-player'),
-    player1.classList.remove('active-player')
-    ) : (
-    activePlayer = 0,
-    player1.classList.add('active-player'),
-    player2.classList.remove('active-player')
-    )
+  no % 2 === 0 ? activePlayer = 0 : activePlayer = 1
+  whoIsPlaying(activePlayer)
   isPlaying = true
 }
 // gestion button new game
 const newGame = document.getElementById('new-game')
 
-newGame.addEventListener('click', (e) => {
-  current1.textContent = current2.textContent = '00'
-  global1.textContent = global2.textContent = '00'
+newGame.addEventListener('click', (e) => initGame())
+
+const initGame = () => {
+  [...current, ...global].forEach(value => value.textContent = '00')
   isPlaying = false
   newDice()
-  setTimeout(duration => whoStartPlaying(), duration)
-})
+}
 
 // gaming
 const hold = document.getElementById('hold')
@@ -118,6 +74,11 @@ hold.addEventListener('click', (e) => {
     whoIsPlaying(activePlayer)
   } 
 })
+
+const formatNumberTwoDigits = value => {
+  value.toString().length === 1 && (value = '0' + value) 
+  return value
+}
 
 const whoIsPlaying = (active) => {
   player[active].classList.add('active-player'),
@@ -154,13 +115,9 @@ const winnerIs = () => {
   popupNewGame.addEventListener('click', (e) => {
     popupWinner.style.visibility = 'hidden'
     popup.style.animation = 'none'
-    current1.textContent = current2.textContent = '00'
-    global1.textContent = global2.textContent = '00'
-    isPlaying = false
-    whoStartPlaying()
+    initGame()
   })
 }
 
 // init game
 newDice()
-setTimeout(duration => whoStartPlaying(), duration)

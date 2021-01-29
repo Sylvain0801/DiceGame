@@ -229,7 +229,10 @@ p.current-score {
   #hold, #roll-dice {
     text-align: center;
     display: block;
-    margin: 0 0 2rem;
+    margin: 0;
+  }
+  #roll-dice {
+    margin-bottom: 1rem;
   }
   #hold .icon, #roll-dice .icon {
     margin: 0;
@@ -257,21 +260,18 @@ p.current-score {
     padding-right: 0;
   }
 }
-@media screen and (max-height: 700px) {
+@media screen and (max-height: 500px) {
   #new-game {
     margin-bottom: 0;
   }
   #roll-dice {
     margin: 0;
   }
-  .global {
-    margin: 0;
-  }
   .dice-container {
     margin-bottom: 1rem;
   }
-  .dice {
-    margin: 0;
+  .dice, .global {
+    margin-bottom: 0;
   }
   h2 {
     margin: 0;

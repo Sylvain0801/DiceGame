@@ -64,6 +64,8 @@ p.current-score {
 }
 .card-current {
   width: 15vw;
+  margin-bottom: auto;
+  max-width: 250px;
 }
 
 /* style dé */
@@ -212,6 +214,9 @@ p.current-score {
   }
 }
 @media screen and (max-width: 700px) {
+  .container {
+    margin: 0;
+  }
   h2 {
     font-size: 1.2rem
   }
@@ -219,20 +224,33 @@ p.current-score {
     font-size: .8rem
   }
   .icon {
-    font-size: 1rem;
+    font-size: 2rem;
+  }
+  #hold, #roll-dice {
+    text-align: center;
+    display: block;
+    margin: 0 0 2rem;
+  }
+  #hold .icon, #roll-dice .icon {
+    margin: 0;
   }
   .global {
-    font-size: 3rem;
+    font-size: 4.5rem;
+    margin-bottom: 4rem;
   }
   .dice {
-    height: 3rem;
-    width: 3rem;
+    height: 3.5rem;
+    width: 3.5rem;
   }
   p.current-score {
     font-size: 1.5rem;
   }
   .dice-container {
-    margin-bottom: 0rem;
+    margin: 6rem 0;
+  }
+  .card-current {
+    margin: auto 0;
+    min-width: 80px;
   }
   .card-header, .card-content {
     padding-left: 0;

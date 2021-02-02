@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap');
 /* Modif variables ionic */
+
 :root {
   --ion-font-family: 'Lato', sans-serif;
   --ion-background-color: linear-gradient(45deg, rgb(231, 97, 44) 0%,rgba(140,51,16,1) 16%,rgba(140,51,16,1) 35%,rgba(117,34,1,1) 67%,rgba(140,51,16,1) 83%,rgba(191,110,78,1) 100%);
   --ion-card-background: rgba(234,77,73)
 }
+
 /* global */
 body {
   text-transform: uppercase;
@@ -80,6 +82,7 @@ p.current-score {
   box-shadow: 5px 5px 15px black;
   margin: 2rem auto;
   position: relative;
+  cursor: pointer;
 }
 @keyframes shake {
   0% {
